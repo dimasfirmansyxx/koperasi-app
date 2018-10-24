@@ -1,0 +1,4 @@
+﻿
+Class frmlaporansimpanan
+
+End Class
