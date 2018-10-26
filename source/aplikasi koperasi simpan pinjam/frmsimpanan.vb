@@ -192,7 +192,7 @@ Public Class frmsimpanan
             reader = cmd.ExecuteReader
             reader.Read()
             If reader.HasRows Then
-                If MessageBox.Show("Yakin ingin dihapus?", "", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("Yakin ingin dihapus?", "", MessageBoxButtons.YesNo) = DialogResult.Yes Then
                     Dim query, kode_anggota, jumlah As String
 
                     conn.Close()

@@ -30,6 +30,8 @@ Partial Class frmanggota
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.gbxbox = New System.Windows.Forms.GroupBox()
+        Me.cmbtipe = New System.Windows.Forms.ComboBox()
+        Me.lbltipe = New System.Windows.Forms.Label()
         Me.txtktp = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtnama = New System.Windows.Forms.TextBox()
@@ -49,7 +51,7 @@ Partial Class frmanggota
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(20, 244)
+        Me.Label5.Location = New System.Drawing.Point(542, 255)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 13)
         Me.Label5.TabIndex = 24
@@ -57,14 +59,14 @@ Partial Class frmanggota
         '
         'txtcari
         '
-        Me.txtcari.Location = New System.Drawing.Point(51, 241)
+        Me.txtcari.Location = New System.Drawing.Point(573, 252)
         Me.txtcari.Name = "txtcari"
         Me.txtcari.Size = New System.Drawing.Size(440, 20)
         Me.txtcari.TabIndex = 23
         '
         'btnbatal
         '
-        Me.btnbatal.Location = New System.Drawing.Point(333, 189)
+        Me.btnbatal.Location = New System.Drawing.Point(340, 221)
         Me.btnbatal.Name = "btnbatal"
         Me.btnbatal.Size = New System.Drawing.Size(112, 23)
         Me.btnbatal.TabIndex = 13
@@ -84,7 +86,7 @@ Partial Class frmanggota
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 19)
+        Me.Label1.Location = New System.Drawing.Point(45, 51)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 0
@@ -110,6 +112,8 @@ Partial Class frmanggota
         '
         'gbxbox
         '
+        Me.gbxbox.Controls.Add(Me.cmbtipe)
+        Me.gbxbox.Controls.Add(Me.lbltipe)
         Me.gbxbox.Controls.Add(Me.txtktp)
         Me.gbxbox.Controls.Add(Me.Label6)
         Me.gbxbox.Controls.Add(Me.btnbatal)
@@ -125,13 +129,33 @@ Partial Class frmanggota
         Me.gbxbox.Enabled = False
         Me.gbxbox.Location = New System.Drawing.Point(23, 12)
         Me.gbxbox.Name = "gbxbox"
-        Me.gbxbox.Size = New System.Drawing.Size(476, 223)
+        Me.gbxbox.Size = New System.Drawing.Size(476, 256)
         Me.gbxbox.TabIndex = 18
         Me.gbxbox.TabStop = False
         '
+        'cmbtipe
+        '
+        Me.cmbtipe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbtipe.FormattingEnabled = True
+        Me.cmbtipe.Items.AddRange(New Object() {"Anggota", "Pengurus", "Pendiri"})
+        Me.cmbtipe.Location = New System.Drawing.Point(83, 15)
+        Me.cmbtipe.Name = "cmbtipe"
+        Me.cmbtipe.Size = New System.Drawing.Size(153, 21)
+        Me.cmbtipe.TabIndex = 4
+        '
+        'lbltipe
+        '
+        Me.lbltipe.AutoSize = True
+        Me.lbltipe.Location = New System.Drawing.Point(6, 18)
+        Me.lbltipe.Name = "lbltipe"
+        Me.lbltipe.Size = New System.Drawing.Size(71, 13)
+        Me.lbltipe.TabIndex = 14
+        Me.lbltipe.Text = "Tipe Anggota"
+        '
         'txtktp
         '
-        Me.txtktp.Location = New System.Drawing.Point(76, 160)
+        Me.txtktp.Enabled = False
+        Me.txtktp.Location = New System.Drawing.Point(83, 192)
         Me.txtktp.Name = "txtktp"
         Me.txtktp.Size = New System.Drawing.Size(369, 20)
         Me.txtktp.TabIndex = 9
@@ -139,7 +163,7 @@ Partial Class frmanggota
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(8, 163)
+        Me.Label6.Location = New System.Drawing.Point(15, 195)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 11
@@ -147,14 +171,15 @@ Partial Class frmanggota
         '
         'txtnama
         '
-        Me.txtnama.Location = New System.Drawing.Point(76, 54)
+        Me.txtnama.Enabled = False
+        Me.txtnama.Location = New System.Drawing.Point(83, 86)
         Me.txtnama.Name = "txtnama"
         Me.txtnama.Size = New System.Drawing.Size(369, 20)
         Me.txtnama.TabIndex = 5
         '
         'btnaksi
         '
-        Me.btnaksi.Location = New System.Drawing.Point(215, 189)
+        Me.btnaksi.Location = New System.Drawing.Point(222, 221)
         Me.btnaksi.Name = "btnaksi"
         Me.btnaksi.Size = New System.Drawing.Size(112, 23)
         Me.btnaksi.TabIndex = 12
@@ -164,7 +189,7 @@ Partial Class frmanggota
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(35, 57)
+        Me.Label2.Location = New System.Drawing.Point(42, 89)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 1
@@ -172,7 +197,8 @@ Partial Class frmanggota
         '
         'txthp
         '
-        Me.txthp.Location = New System.Drawing.Point(76, 126)
+        Me.txthp.Enabled = False
+        Me.txthp.Location = New System.Drawing.Point(83, 158)
         Me.txthp.Name = "txthp"
         Me.txthp.Size = New System.Drawing.Size(369, 20)
         Me.txthp.TabIndex = 7
@@ -180,7 +206,7 @@ Partial Class frmanggota
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 94)
+        Me.Label3.Location = New System.Drawing.Point(38, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 2
@@ -188,7 +214,8 @@ Partial Class frmanggota
         '
         'txtalamat
         '
-        Me.txtalamat.Location = New System.Drawing.Point(76, 91)
+        Me.txtalamat.Enabled = False
+        Me.txtalamat.Location = New System.Drawing.Point(83, 123)
         Me.txtalamat.Name = "txtalamat"
         Me.txtalamat.Size = New System.Drawing.Size(369, 20)
         Me.txtalamat.TabIndex = 6
@@ -196,7 +223,7 @@ Partial Class frmanggota
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 129)
+        Me.Label4.Location = New System.Drawing.Point(31, 161)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 3
@@ -204,7 +231,7 @@ Partial Class frmanggota
         '
         'txtkode
         '
-        Me.txtkode.Location = New System.Drawing.Point(76, 16)
+        Me.txtkode.Location = New System.Drawing.Point(83, 48)
         Me.txtkode.Name = "txtkode"
         Me.txtkode.ReadOnly = True
         Me.txtkode.Size = New System.Drawing.Size(153, 20)
@@ -275,4 +302,6 @@ Partial Class frmanggota
     Friend WithEvents txtktp As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents cmbtipe As ComboBox
+    Friend WithEvents lbltipe As Label
 End Class

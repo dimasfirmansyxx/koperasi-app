@@ -71,7 +71,7 @@ Public Class frmrptpembayaran
     Private Sub btnprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnprint.Click
         Dim sfd As New SaveFileDialog
         sfd.Filter = "Microsoft Excel File (*.xls)|*.xls"
-        If sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
+        If sfd.ShowDialog = DialogResult.OK Then
             If Me.dgv.Rows.Count > 0 Then
                 Try
                     Dim dt As New DataTable()

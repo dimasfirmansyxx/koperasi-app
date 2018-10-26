@@ -172,7 +172,7 @@ Public Class frmuser
             reader = cmd.ExecuteReader
             reader.Read()
             If reader.HasRows Then
-                If MessageBox.Show("Apakah user dengan kode " + input + " ingin dihapus?", "Yakin?", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("Apakah user dengan kode " + input + " ingin dihapus?", "Yakin?", MessageBoxButtons.YesNo) = DialogResult.Yes Then
                     conn.Close()
                     conn.Open()
                     cmd = New MySqlCommand("DELETE FROM tbluser WHERE id = '" & input & "'", conn)
