@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("aplikasi koperasi simpan pinjam")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("aplikasi koperasi simpan pinjam")> 
+<Assembly: AssemblyTitle("Aplikasi Koperasi Simpan Pinjam")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("Dimas")>
+<Assembly: AssemblyProduct("Aplikasi Koperasi Simpan Pinjam")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")> 
 <Assembly: AssemblyTrademark("")> 
 
