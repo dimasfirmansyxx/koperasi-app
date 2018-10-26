@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2018 at 04:55 AM
+-- Generation Time: Oct 26, 2018 at 10:20 AM
 -- Server version: 5.6.20
--- PHP Version: 5.6.38
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `tblanggota` (
 `id` int(11) NOT NULL,
-  `kode` varchar(4) NOT NULL,
+  `kode` varchar(5) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
   `telepon` varchar(12) NOT NULL,
   `ktp` varchar(16) NOT NULL,
   `saldo` varchar(100) NOT NULL,
   `lvl` enum('A','P','PG') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tblanggota`
@@ -43,7 +43,9 @@ CREATE TABLE IF NOT EXISTS `tblanggota` (
 
 INSERT INTO `tblanggota` (`id`, `kode`, `nama`, `alamat`, `telepon`, `ktp`, `saldo`, `lvl`) VALUES
 (1, '051A', 'Budi', 'Batu Ampar', '087798347590', '2171905983798457', '580000', 'A'),
-(2, '052A', 'Andi', 'Sengkuang', '081295827598', '2171023758297395', '240002', 'A');
+(2, '052A', 'Andi', 'Sengkuang', '081295827598', '2171023758297395', '240002', 'A'),
+(4, '001PG', 'Dimas', 'Sei Tering', '083164726235', '2171285782578273', '0', 'PG'),
+(5, '002PG', 'Robby', 'Bengkong', '081282357828', '2171285628356263', '0', 'PG');
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `tbluser` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(16) NOT NULL,
   `password` varchar(16) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tbluser`
@@ -281,7 +283,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblanggota`
 --
 ALTER TABLE `tblanggota`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tblsimpanan`
 --
@@ -291,7 +293,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000000024;
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
