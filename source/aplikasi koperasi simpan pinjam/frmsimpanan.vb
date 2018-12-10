@@ -66,7 +66,7 @@ Public Class frmsimpanan
     Private Sub txtkodeanggota_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtkodeanggota.TextChanged
         conn.Close()
         conn.Open()
-        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE id = '" & txtkodeanggota.Text & "'", conn)
+        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '" & txtkodeanggota.Text & "'", conn)
         reader = cmd.ExecuteReader
         reader.Read()
         If reader.HasRows Then
@@ -102,7 +102,7 @@ Public Class frmsimpanan
                 Dim kode, tanggal, kode_anggota, nama, jenis, jumlah As String
                 kode = txtkode.Text
                 tanggal = txttanggal.Text
-                kode_anggota = txtkodeanggota.Text
+                kode_anggota = txtkodeanggota.Text.ToUpper
                 nama = txtnama.Text
                 jenis = cmbjenis.Text
                 jumlah = txtjumlah.Text
@@ -134,6 +134,7 @@ Public Class frmsimpanan
                 End If
 
                 Dim query, saldo As String
+                Dim newSaldo As Integer
                 query = "INSERT INTO tblsimpanan VALUES ('" & kode & "','" & tanggal & "','" & kode_anggota & "', " _
                     + "'" & nama & "','" & jenis & "','" & jumlah & "','" & tgl & "','" & bln & "','" & thn & "')"
                 conn.Close()
@@ -143,16 +144,18 @@ Public Class frmsimpanan
 
                 conn.Close()
                 conn.Open()
-                query = "SELECT * FROM tblanggota WHERE id = '" & kode_anggota & "'"
+                query = "SELECT * FROM tblanggota WHERE kode = '" & kode_anggota & "'"
                 cmd = New MySqlCommand(query, conn)
                 reader = cmd.ExecuteReader
                 reader.Read()
-                saldo = reader.Item("saldo")
-                saldo = saldo + +jumlah
+                'saldo = CDbl(reader.Item("saldo"))
+                'saldo = saldo + CDbl(jumlah)
+                saldo = CStr(reader.Item("saldo"))
+                newSaldo = CInt(saldo) + CInt(jumlah)
 
                 conn.Close()
                 conn.Open()
-                cmd = New MySqlCommand("UPDATE tblanggota SET saldo = '" & saldo & "' WHERE id = '" & kode_anggota & "'", conn)
+                cmd = New MySqlCommand("UPDATE tblanggota SET saldo = '" & CStr(newSaldo) & "' WHERE kode = '" & kode_anggota & "'", conn)
                 cmd.ExecuteNonQuery()
 
                 MessageBox.Show("Berhasil")
@@ -213,7 +216,7 @@ Public Class frmsimpanan
 
                     conn.Close()
                     conn.Open()
-                    query = "SELECT * FROM tblanggota WHERE id = '" & kode_anggota & "'"
+                    query = "SELECT * FROM tblanggota WHERE kode = '" & kode_anggota & "'"
                     cmd = New MySqlCommand(query, conn)
                     reader = cmd.ExecuteReader
                     reader.Read()
@@ -222,7 +225,7 @@ Public Class frmsimpanan
 
                     conn.Close()
                     conn.Open()
-                    query = "UPDATE tblanggota SET saldo = '" & jumlah & "' WHERE id = '" & kode_anggota & "'"
+                    query = "UPDATE tblanggota SET saldo = '" & jumlah & "' WHERE kode = '" & kode_anggota & "'"
                     cmd = New MySqlCommand(query, conn)
                     cmd.ExecuteNonQuery()
 

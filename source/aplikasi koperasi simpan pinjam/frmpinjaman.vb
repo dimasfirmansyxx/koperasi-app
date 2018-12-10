@@ -30,6 +30,9 @@ Public Class frmpinjaman
         dgv.Columns(9).Visible = False
         dgv.Columns(10).Visible = False
         dgv.Columns(11).Visible = False
+        dgv.Columns(12).Visible = False
+        dgv.Columns(13).Visible = False
+        dgv.Columns(14).Visible = False
 
         dgv.Columns(0).HeaderText = "Kode Pinjaman"
         dgv.Columns(1).HeaderText = "Tanggal"
@@ -69,6 +72,20 @@ Public Class frmpinjaman
         makspinjaman = reader.Item("maksimal_peminjaman")
     End Sub
 
+    Private Sub btnbatal_Click(sender As Object, e As EventArgs) Handles btnbatal.Click
+        txtkodeanggota.Clear()
+        txtbunga.Clear()
+        txtlama.Clear()
+        txtjumlah.Clear()
+        txtnama.Clear()
+        txtsaldo.Clear()
+        txtangsuran.Clear()
+    End Sub
+
+    Private Sub btnkeluar_Click(sender As Object, e As EventArgs) Handles btnkeluar.Click
+        Me.Close()
+    End Sub
+
     Private Sub frmpinjaman_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call konek()
         Call getCode()
@@ -85,7 +102,7 @@ Public Class frmpinjaman
         Call getMaxPinjam()
         conn.Close()
         conn.Open()
-        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE id = '" & txtkodeanggota.Text & "'", conn)
+        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '" & txtkodeanggota.Text & "'", conn)
         reader = cmd.ExecuteReader
         reader.Read()
         If reader.HasRows Then
@@ -101,10 +118,12 @@ Public Class frmpinjaman
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         If Not txtbunga.Text = "" And Not txtlama.Text = "" And Not txtjumlah.Text = "" Then
-            Dim bunga, pokok As Integer
-            pokok = txtjumlah.Text / txtlama.Text
-            bunga = (txtjumlah.Text * txtbunga.Text / 100) / txtlama.Text
-            txtangsuran.Text = pokok + bunga
+            If IsNumeric(txtbunga.Text) And IsNumeric(txtlama.Text) And IsNumeric(txtjumlah.Text) Then
+                Dim bunga, pokok As Integer
+                pokok = txtjumlah.Text / txtlama.Text
+                bunga = (txtjumlah.Text * txtbunga.Text / 100) / txtlama.Text
+                txtangsuran.Text = pokok + bunga
+            End If
         End If
     End Sub
 
@@ -116,7 +135,7 @@ Public Class frmpinjaman
             Dim bunga, lama, jumlah, angsuran, total As Integer
             kode = txtkode.Text
             tanggal = txttanggal.Text
-            anggota = txtkodeanggota.Text
+            anggota = txtkodeanggota.Text.ToUpper
             nama = txtnama.Text
             bunga = txtbunga.Text
             lama = txtlama.Text

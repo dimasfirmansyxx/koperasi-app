@@ -10,46 +10,69 @@
     End Sub
 
     Private Sub LoginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoginToolStripMenuItem.Click
-        frmuser.Show()
+        Dim form As New frmuser
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoutToolStripMenuItem.Click
-        frmanggota.Show()
+        Dim form As New frmanggota
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub PengaturanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PengaturanToolStripMenuItem.Click
-        frmpengaturan.Show()
+        Dim form As New frmpengaturan
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub SimpananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpananToolStripMenuItem.Click
-        frmsimpanan.Show()
+        Dim form As New frmsimpanan
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub PengembalianToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PengembalianToolStripMenuItem.Click
-        frmpengambilan.Show()
+        Dim form As New frmpengambilan
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub PinjamanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PinjamanToolStripMenuItem.Click
-        frmpinjaman.Show()
+        Dim form As New frmpinjaman
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub PembayaranToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PembayaranToolStripMenuItem.Click
-        frmpembayaran.Show()
+        Dim form As New frmpembayaran
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub LaporanSimpananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaporanSimpananToolStripMenuItem.Click
-        frmrptsimpanan.Show()
+        Dim form As New frmrptsimpanan
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub PengambilanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PengambilanToolStripMenuItem.Click
-        frmrptpengambilan.show()
+        Dim form As New frmrptpengambilan
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub LaporanPinjamanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaporanPinjamanToolStripMenuItem.Click
-        frmrptpinjaman.Show()
+        Dim form As New frmrptpinjaman
+        form.MdiParent = Me
+        form.Show()
     End Sub
 
     Private Sub LaporanPembayaranToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaporanPembayaranToolStripMenuItem.Click
-        frmrptpembayaran.Show()
+        Dim form As New frmrptpembayaran
+        form.MdiParent = Me
+        form.Show()
     End Sub
+
 End Class

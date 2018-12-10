@@ -23,6 +23,9 @@ Public Class frmpengambilan
         dgv.Columns(2).Width = 150
         dgv.Columns(3).Width = 150
         dgv.Columns(4).Width = 150
+        dgv.Columns(5).Visible = False
+        dgv.Columns(6).Visible = False
+        dgv.Columns(7).Visible = False
         dgv.Columns(0).HeaderText = "Kode Transaksi"
         dgv.Columns(1).HeaderText = "Tanggal"
         dgv.Columns(2).HeaderText = "Kode Anggota"
@@ -56,7 +59,8 @@ Public Class frmpengambilan
     End Sub
 
     Private Sub btnaksi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnaksi.Click
-        Dim sisasaldo, minsaldo, query As String
+        Dim query As String
+        Dim sisasaldo, minsaldo As Integer
         If txtnama.Text = "" Or txtjumlah.Text = "" Then
             MessageBox.Show("Isikan Seluruh data!")
         Else
@@ -66,20 +70,20 @@ Public Class frmpengambilan
             reader = cmd.ExecuteReader
             reader.Read()
 
-            minsaldo = reader.Item("minimal_saldo")
-            sisasaldo = txtsaldo.Text - txtjumlah.Text
+            minsaldo = CInt(reader.Item("minimal_saldo"))
+            sisasaldo = CInt(txtsaldo.Text) - CInt(txtjumlah.Text)
             If sisasaldo < minsaldo Then
                 MessageBox.Show("Saldo yang ada harus tidak kurang dari " + CStr(minsaldo))
             Else
                 conn.Close()
                 conn.Open()
-                query = "INSERT INTO tblpengambilan VALUES ('" & txtkode.Text & "', '" & txttanggal.Text & "', '" & txtkodeanggota.Text & "', '" & txtnama.Text & "', '" & txtjumlah.Text & "', '" & tgl & "', '" & bln & "', '" & thn & "')"
+                query = "INSERT INTO tblpengambilan VALUES ('" & txtkode.Text & "', '" & txttanggal.Text & "', '" & txtkodeanggota.Text.ToUpper & "', '" & txtnama.Text & "', '" & txtjumlah.Text & "', '" & tgl & "', '" & bln & "', '" & thn & "')"
                 cmd = New MySqlCommand(query, conn)
                 cmd.ExecuteNonQuery()
 
                 conn.Close()
                 conn.Open()
-                cmd = New MySqlCommand("UPDATE tblanggota SET saldo = '" & sisasaldo & "' WHERE id = '" & txtkodeanggota.Text & "'", conn)
+                cmd = New MySqlCommand("UPDATE tblanggota SET saldo = '" & CStr(sisasaldo) & "' WHERE kode = '" & txtkodeanggota.Text & "'", conn)
                 cmd.ExecuteNonQuery()
 
                 MessageBox.Show("Sukses")
@@ -91,7 +95,7 @@ Public Class frmpengambilan
     Private Sub txtkodeanggota_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtkodeanggota.TextChanged
         conn.Close()
         conn.Open()
-        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE id = '" & txtkodeanggota.Text & "'", conn)
+        cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '" & txtkodeanggota.Text & "'", conn)
         reader = cmd.ExecuteReader
         reader.Read()
         If reader.HasRows Then

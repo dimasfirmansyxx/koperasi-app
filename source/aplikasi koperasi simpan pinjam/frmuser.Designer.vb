@@ -33,11 +33,11 @@ Partial Class frmuser
         Me.dgv = New System.Windows.Forms.DataGridView()
         Me.btnaksi = New System.Windows.Forms.Button()
         Me.gbxbox = New System.Windows.Forms.GroupBox()
+        Me.btnbatal = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.btnbatal = New System.Windows.Forms.Button()
         Me.txtcari = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,6 +149,16 @@ Partial Class frmuser
         Me.gbxbox.TabIndex = 10
         Me.gbxbox.TabStop = False
         '
+        'btnbatal
+        '
+        Me.btnbatal.Location = New System.Drawing.Point(321, 155)
+        Me.btnbatal.Name = "btnbatal"
+        Me.btnbatal.Size = New System.Drawing.Size(112, 23)
+        Me.btnbatal.TabIndex = 10
+        Me.btnbatal.Text = "Batal"
+        Me.btnbatal.UseVisualStyleBackColor = True
+        Me.btnbatal.Visible = False
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(563, 28)
@@ -185,16 +195,6 @@ Partial Class frmuser
         Me.Button4.Text = "Tutup"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'btnbatal
-        '
-        Me.btnbatal.Location = New System.Drawing.Point(321, 155)
-        Me.btnbatal.Name = "btnbatal"
-        Me.btnbatal.Size = New System.Drawing.Size(112, 23)
-        Me.btnbatal.TabIndex = 10
-        Me.btnbatal.Text = "Batal"
-        Me.btnbatal.UseVisualStyleBackColor = True
-        Me.btnbatal.Visible = False
-        '
         'txtcari
         '
         Me.txtcari.Location = New System.Drawing.Point(49, 214)
@@ -224,6 +224,7 @@ Partial Class frmuser
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.gbxbox)
         Me.Controls.Add(Me.dgv)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.MaximizeBox = False
         Me.Name = "frmuser"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide

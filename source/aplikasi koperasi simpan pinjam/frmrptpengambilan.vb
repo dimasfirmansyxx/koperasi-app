@@ -146,7 +146,7 @@ Public Class frmrptpengambilan
             If reader.HasRows Then
                 conn.Close()
                 conn.Open()
-                adapter = New MySqlDataAdapter("SELECT * FROM tblpengambilan thn = '" & cmbtahun.Text & "' ORDER BY id DESC", conn)
+                adapter = New MySqlDataAdapter("SELECT * FROM tblpengambilan WHERE thn = '" & cmbtahun.Text & "' ORDER BY id DESC", conn)
                 dataset = New DataSet
                 adapter.Fill(dataset, "tblpengambilan")
                 dgv.DataSource = dataset.Tables("tblpengambilan")

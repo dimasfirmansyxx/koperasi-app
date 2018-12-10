@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmmaster
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmmaster
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmmaster))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -155,9 +155,10 @@ Partial Class frmmaster
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(553, 75)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Koperasi KSPN Grand Best" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jl.Coaster 8 Blok B No 21 - 23 Tanjung Emas Kota Semara" & _
-            "ng " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "No Hp: 08156586827"
+        Me.Label1.Text = "Koperasi KSPN Grand Best" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Jl.Coaster 8 Blok B No 21 - 23 Tanjung Emas Kota Semara" &
+    "ng " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "No Hp: 08156586827"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label1.Visible = False
         '
         'frmmaster
         '
@@ -169,8 +170,8 @@ Partial Class frmmaster
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
         Me.Name = "frmmaster"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -199,5 +200,4 @@ Partial Class frmmaster
     Friend WithEvents PengambilanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanPinjamanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanPembayaranToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
 End Class

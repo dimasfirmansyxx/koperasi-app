@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmpembayaran
-    Dim kode, kodeanggota As Integer
-    Dim tgl, bln, thn As String
+    Dim kode As Integer
+    Dim kodeanggota, tgl, bln, thn As String
 
     Sub getCode()
         conn.Close()
@@ -22,13 +22,47 @@ Public Class frmpembayaran
         thn = Format(Now, "yyyy")
     End Sub
 
+    Sub getDgv()
+        conn.Close()
+        conn.Open()
+        adapter = New MySqlDataAdapter("SELECT * FROM tblpembayaran ORDER BY id DESC", conn)
+        dataset = New DataSet
+        adapter.Fill(dataset, "tblpembayaran")
+        dgv.DataSource = dataset.Tables("tblpembayaran")
+    End Sub
+
+    Sub setDgv()
+        dgv.Columns(0).Width = 150
+        dgv.Columns(1).Width = 100
+        dgv.Columns(2).Width = 120
+        dgv.Columns(3).Width = 100
+        dgv.Columns(4).Width = 150
+        dgv.Columns(5).Width = 100
+        dgv.Columns(6).Visible = False
+        dgv.Columns(7).Visible = False
+        dgv.Columns(8).Visible = False
+
+        dgv.Columns(0).HeaderText = "Kode Pembayaran"
+        dgv.Columns(1).HeaderText = "Tanggal"
+        dgv.Columns(2).HeaderText = "Kode Pinjaman"
+        dgv.Columns(3).HeaderText = "Kode Anggota"
+        dgv.Columns(4).HeaderText = "Nama Anggota"
+        dgv.Columns(5).HeaderText = "Pembayaran"
+    End Sub
+
     Private Sub frmpembayaran_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call konek()
         Call getCode()
         Call getDate()
+        Call getDgv()
+        Call setDgv()
         txtketerangan.Text = "Pembayaran bulan " + bln + " tahun " + thn
         txtkode.Text = kode
         txttanggal.Text = tgl + "/" + bln + "/" + thn
+    End Sub
+
+    Private Sub btnkeluar_Click(sender As Object, e As EventArgs) Handles btnkeluar.Click
+        Me.Close()
     End Sub
 
     Private Sub txtkodepinjaman_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtkodepinjaman.TextChanged
@@ -39,7 +73,7 @@ Public Class frmpembayaran
         reader = cmd.ExecuteReader
         reader.Read()
         If reader.HasRows Then
-            kodeanggota = reader.Item("kode_anggota")
+            kodeanggota = CStr(reader.Item("kode_anggota")).ToUpper
             txtnama.Text = reader.Item("nama_anggota")
             txtjumlahpinjaman.Text = reader.Item("jumlah")
             txtangsuran.Text = reader.Item("angsuran")
@@ -137,6 +171,7 @@ Public Class frmpembayaran
                 MessageBox.Show("Sukses")
                 btnbatal.PerformClick()
                 txtkode.Text = txtkode.Text + +1
+                Call getDgv()
             End If
 
         End If

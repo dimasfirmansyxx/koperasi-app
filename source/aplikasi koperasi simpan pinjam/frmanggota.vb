@@ -5,13 +5,21 @@ Public Class frmanggota
 
     Sub getCode()
         Dim kode As Integer
+        Dim cmdPengurus, cmdPendiri As MySqlCommand
+        Dim jumlahPengurus, jumlahPendiri, jumlahKeduanya As Integer
         If cmbtipe.Text = "Pengurus" Or cmbtipe.Text = "Pendiri" Then
             conn.Close()
             conn.Open()
-            cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '050P' OR kode = '050PG'", conn)
-            reader = cmd.ExecuteReader
-            reader.Read()
-            If reader.HasRows Then
+            'cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '050P' OR kode = '050PG'", conn)
+            cmdPengurus = New MySqlCommand("SELECT COUNT(*) FROM tblanggota WHERE lvl = 'PG'", conn)
+            cmdPendiri = New MySqlCommand("SELECT COUNT(*) FROM tblanggota WHERE lvl = 'P'", conn)
+            jumlahPengurus = CInt(cmdPengurus.ExecuteScalar)
+            jumlahPendiri = CInt(cmdPendiri.ExecuteScalar)
+            jumlahKeduanya = jumlahPengurus + jumlahPendiri
+            'reader = cmd.ExecuteReader
+            'reader.Read()
+            'If reader.HasRows Then
+            If jumlahKeduanya > 50 Then
                 If cmbtipe.Text = "Pengurus" Then
                     MessageBox.Show("Tipe anggota untuk pengurus sudah penuh")
                 ElseIf cmbtipe.Text = "Pendiri" Then
