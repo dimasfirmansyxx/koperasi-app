@@ -20,6 +20,7 @@ namespace koperasi_app
         public static MySqlCommand cmd = new MySqlCommand();
         private string action = "";
         private string kodeFocused = "";
+        private string KTPfocused = "";
 
         private static ucAnggota _instance;
         
@@ -162,6 +163,44 @@ namespace koperasi_app
                     }
                 }
             }
+            else if (action == "edit")
+            {
+                if (txtNama.Text == "" || txtKTP.Text == "" || txtAlamat.Text == "" || txtTelepon.Text == "")
+                {
+                    XtraMessageBox.Show("Isikan seluruh data!");
+                }
+                else if (!txtKTP.Text.All(char.IsNumber))
+                {
+                    XtraMessageBox.Show("Isikan Nomor KTP hanya dengan angka!");
+                }
+                else if (!txtTelepon.Text.All(char.IsNumber))
+                {
+                    XtraMessageBox.Show("Isikan Nomor Telepon hanya dengan angka!");
+                }
+                else
+                {
+                    string kode, nama, ktp, alamat, telepon;
+                    kode = txtKode.Text;
+                    nama = txtNama.Text;
+                    ktp = txtKTP.Text;
+                    alamat = txtAlamat.Text;
+                    telepon = txtTelepon.Text;
+
+                    if ( KTPfocused != ktp )
+                    {
+                        if ( master.validate("tblanggota","ktp",ktp) )
+                        {
+                            XtraMessageBox.Show("KTP yang dimasukkan sudah terdaftar!");
+                            return;
+                        }
+                    }
+
+                    string data;
+                    data = " nama = '"+ nama +"', alamat = '"+ alamat +"', telepon = '"+ telepon +"', ktp = '"+ ktp +"' ";
+                    if (master.updateData("tblanggota", data, "kode", kode))
+                        btnCancel.PerformClick();
+                }
+            }
 
             getAnggota();
             
@@ -195,6 +234,7 @@ namespace koperasi_app
             txtAlamat.Text = memberInfo[1];
             txtTelepon.Text = memberInfo[2];
             txtKTP.Text = memberInfo[3];
+            KTPfocused = memberInfo[3];
 
             action = "edit";
         }

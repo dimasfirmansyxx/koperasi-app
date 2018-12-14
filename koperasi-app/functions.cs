@@ -159,7 +159,7 @@ namespace koperasi_app
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("UPDATE " + tblname + " SET " + data + "WHERE " + key + " = " + value + "", conn);
+                cmd = new MySqlCommand("UPDATE " + tblname + " SET " + data + "WHERE " + key + " = '" + value + "'", conn);
                 cmd.ExecuteNonQuery();
                 return true;
             }
