@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2018 at 10:29 AM
+-- Generation Time: Dec 10, 2018 at 05:00 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.6.38
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `tblanggota` (
   `ktp` varchar(16) NOT NULL,
   `saldo` varchar(100) NOT NULL,
   `lvl` enum('A','P','PG') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tblanggota`
@@ -58,16 +58,15 @@ CREATE TABLE IF NOT EXISTS `tblaturan` (
   `simpanan_sukarela` int(20) NOT NULL,
   `denda` int(20) NOT NULL,
   `maksimal_peminjaman` int(20) NOT NULL,
-  `minimal_saldo` int(20) NOT NULL,
-  `maks_root` int(11) NOT NULL
+  `minimal_saldo` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblaturan`
 --
 
-INSERT INTO `tblaturan` (`id`, `simpanan_pokok`, `simpanan_wajib`, `simpanan_sukarela`, `denda`, `maksimal_peminjaman`, `minimal_saldo`, `maks_root`) VALUES
-(0, 200000, 100000, 0, 10, 3, 200000, 50);
+INSERT INTO `tblaturan` (`id`, `simpanan_pokok`, `simpanan_wajib`, `simpanan_sukarela`, `denda`, `maksimal_peminjaman`, `minimal_saldo`) VALUES
+(0, 200000, 100000, 0, 10, 3, 200000);
 
 -- --------------------------------------------------------
 
@@ -166,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `tblsimpanan` (
   `tgl` varchar(2) NOT NULL,
   `bln` varchar(2) NOT NULL,
   `thn` varchar(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1000000003 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1000000024 ;
 
 --
 -- Dumping data for table `tblsimpanan`
@@ -187,14 +186,14 @@ CREATE TABLE IF NOT EXISTS `tbluser` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(16) NOT NULL,
   `password` varchar(16) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `tbluser`
 --
 
 INSERT INTO `tbluser` (`id`, `nama`, `username`, `password`) VALUES
-(1, 'Administrator', 'admin', 'admin');
+(1, 'Admin', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -250,17 +249,17 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblanggota`
 --
 ALTER TABLE `tblanggota`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tblsimpanan`
 --
 ALTER TABLE `tblsimpanan`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000000003;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000000024;
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

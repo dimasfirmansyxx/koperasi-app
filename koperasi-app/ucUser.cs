@@ -108,7 +108,6 @@ namespace koperasi_app
                         if ( master.insertData("tbluser",values) == true )
                         {
                             int newCode;
-                            XtraMessageBox.Show("User " + txtNama.Text + " berhasil ditambah");
                             newCode = Convert.ToInt32(txtKode.Text) + 1;
                             txtKode.Text = newCode.ToString();
                             txtNama.Text = "";

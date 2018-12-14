@@ -101,6 +101,12 @@
     <Compile Include="splash.Designer.cs">
       <DependentUpon>splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucAnggota.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAnggota.Designer.cs">
+      <DependentUpon>ucAnggota.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="splash.resx">
       <DependentUpon>splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucAnggota.resx">
+      <DependentUpon>ucAnggota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>

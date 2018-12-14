@@ -109,6 +109,7 @@
             this.nbiAnggota.Caption = "Anggota";
             this.nbiAnggota.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiAnggota.LargeImage")));
             this.nbiAnggota.Name = "nbiAnggota";
+            this.nbiAnggota.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiAnggota_LinkClicked);
             // 
             // nbiPengaturan
             // 

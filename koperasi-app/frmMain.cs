@@ -40,5 +40,17 @@ namespace koperasi_app
         {
             WindowState = FormWindowState.Maximized;
         }
+
+        private void nbiAnggota_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!ucArea.Controls.Contains(ucAnggota.Instance))
+            {
+                ucArea.Controls.Add(ucAnggota.Instance);
+                ucAnggota.Instance.Dock = DockStyle.Fill;
+                ucAnggota.Instance.BringToFront();
+            }
+            else
+                ucAnggota.Instance.BringToFront();
+        }
     }
 }
