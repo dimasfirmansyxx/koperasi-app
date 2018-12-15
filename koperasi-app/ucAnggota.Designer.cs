@@ -40,6 +40,8 @@
             this.telepon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ktp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.saldo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnTambah = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -56,10 +58,10 @@
             this.cmbTipe = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblTipe = new DevExpress.XtraEditors.LabelControl();
             this.gbxManageUser = new DevExpress.XtraEditors.GroupControl();
-            this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKode.Properties)).BeginInit();
             this.gbxForm.SuspendLayout();
@@ -68,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxManageUser)).BeginInit();
             this.gbxManageUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -188,6 +188,21 @@
             this.saldo.Name = "saldo";
             this.saldo.Visible = true;
             this.saldo.VisibleIndex = 5;
+            // 
+            // repositoryItemGridLookUpEdit1
+            // 
+            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
+            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
+            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // btnEdit
             // 
@@ -384,21 +399,6 @@
             this.gbxManageUser.TabIndex = 6;
             this.gbxManageUser.Text = "Manajemen Anggota";
             // 
-            // repositoryItemGridLookUpEdit1
-            // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
-            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            // 
-            // repositoryItemGridLookUpEdit1View
-            // 
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
             // ucAnggota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +409,8 @@
             this.Size = new System.Drawing.Size(922, 705);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKode.Properties)).EndInit();
             this.gbxForm.ResumeLayout(false);
@@ -418,8 +420,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxManageUser)).EndInit();
             this.gbxManageUser.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }

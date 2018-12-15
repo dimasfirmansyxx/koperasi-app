@@ -116,6 +116,7 @@
             this.nbiPengaturan.Caption = "Pengaturan";
             this.nbiPengaturan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiPengaturan.LargeImage")));
             this.nbiPengaturan.Name = "nbiPengaturan";
+            this.nbiPengaturan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPengaturan_LinkClicked);
             // 
             // nbgTransaksi
             // 

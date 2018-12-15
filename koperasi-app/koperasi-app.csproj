@@ -107,6 +107,12 @@
     <Compile Include="ucAnggota.Designer.cs">
       <DependentUpon>ucAnggota.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSetting.Designer.cs">
+      <DependentUpon>ucSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucAnggota.resx">
       <DependentUpon>ucAnggota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSetting.resx">
+      <DependentUpon>ucSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>

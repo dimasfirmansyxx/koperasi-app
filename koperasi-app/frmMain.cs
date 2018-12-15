@@ -52,5 +52,17 @@ namespace koperasi_app
             else
                 ucAnggota.Instance.BringToFront();
         }
+
+        private void nbiPengaturan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!ucArea.Controls.Contains(ucSetting.Instance))
+            {
+                ucArea.Controls.Add(ucSetting.Instance);
+                ucSetting.Instance.Dock = DockStyle.Fill;
+                ucSetting.Instance.BringToFront();
+            }
+            else
+                ucSetting.Instance.BringToFront();
+        }
     }
 }
