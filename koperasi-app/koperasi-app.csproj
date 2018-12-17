@@ -113,6 +113,12 @@
     <Compile Include="ucSetting.Designer.cs">
       <DependentUpon>ucSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSimpanan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSimpanan.Designer.cs">
+      <DependentUpon>ucSimpanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucSetting.resx">
       <DependentUpon>ucSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSimpanan.resx">
+      <DependentUpon>ucSimpanan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUser.resx">
       <DependentUpon>ucUser.cs</DependentUpon>

@@ -70,6 +70,7 @@
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(174, 40);
             this.btnTambah.TabIndex = 0;
+            this.btnTambah.TabStop = false;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
@@ -83,6 +84,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(174, 40);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -96,6 +98,7 @@
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.Size = new System.Drawing.Size(174, 40);
             this.btnHapus.TabIndex = 2;
+            this.btnHapus.TabStop = false;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
@@ -271,7 +274,7 @@
             this.btnCancel.Location = new System.Drawing.Point(477, 136);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -282,7 +285,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(396, 136);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 0;
+            this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 

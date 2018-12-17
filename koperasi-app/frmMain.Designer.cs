@@ -56,7 +56,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.nbgMaster;
+            this.navBarControl1.ActiveGroup = this.nbgTransaksi;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.nbgMaster,
@@ -88,7 +88,6 @@
             // nbgMaster
             // 
             this.nbgMaster.Caption = "Master";
-            this.nbgMaster.Expanded = true;
             this.nbgMaster.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiUser),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiAnggota),
@@ -121,6 +120,7 @@
             // nbgTransaksi
             // 
             this.nbgTransaksi.Caption = "Transaksi";
+            this.nbgTransaksi.Expanded = true;
             this.nbgTransaksi.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSimpanan),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPengambilan),
@@ -134,6 +134,7 @@
             this.nbiSimpanan.Caption = "Simpanan";
             this.nbiSimpanan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiSimpanan.LargeImage")));
             this.nbiSimpanan.Name = "nbiSimpanan";
+            this.nbiSimpanan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSimpanan_LinkClicked);
             // 
             // nbiPengambilan
             // 

@@ -13,7 +13,7 @@ namespace koperasi_app
         public static string connstr = @"server=localhost;userid=root;password=;database=dbkoperasi";
         public MySqlConnection conn = new MySqlConnection(connstr);
         public MySqlCommand cmd = new MySqlCommand();
-        
+
 
         public string getIdForNewUser()
         {
@@ -68,10 +68,10 @@ namespace koperasi_app
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM " + tblname + " WHERE " + key + " = '" + value + "' ",conn);
+                cmd = new MySqlCommand("SELECT * FROM " + tblname + " WHERE " + key + " = '" + value + "' ", conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-                if ( reader.HasRows )
+                if (reader.HasRows)
                 {
                     return true;
                 }
@@ -80,11 +80,41 @@ namespace koperasi_app
                     return false;
                 }
             }
-            catch { return false; }
             finally
             {
                 conn.Close();
             }
+        }
+
+        public bool validateComplex(string query)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public string monthID(string month)
+        {
+            int bln = Convert.ToInt32(month);
+            string[] arr = new string[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" };
+            bln = bln - 1;
+            return arr[bln];
         }
 
         public bool insertData(string tblname, string values)
@@ -92,7 +122,7 @@ namespace koperasi_app
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("INSERT INTO "+ tblname +" VALUES ("+ values +") ", conn);
+                cmd = new MySqlCommand("INSERT INTO " + tblname + " VALUES (" + values + ") ", conn);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -108,46 +138,11 @@ namespace koperasi_app
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("DELETE FROM " + tblname + " WHERE " + key + " = '" + value + "' ",conn);
+                cmd = new MySqlCommand("DELETE FROM " + tblname + " WHERE " + key + " = '" + value + "' ", conn);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch { return false; }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public string[] getUserInfo(string id)
-        {
-            string nama;
-            string username;
-            string password;
-            try
-            {
-                conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM tbluser WHERE id = "+ id +" ", conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                nama = reader["nama"].ToString();
-                username = reader["username"].ToString();
-                password = reader["password"].ToString();
-
-                string[] arr = new string[3];
-                arr[0] = nama;
-                arr[1] = username;
-                arr[2] = password;
-
-                return arr;
-            }
-            catch
-            {
-                string[] arr = new string[0];
-                arr[0] = "0";
-
-                return arr;
-            }
             finally
             {
                 conn.Close();
@@ -170,6 +165,51 @@ namespace koperasi_app
             }
         }
 
+        public string getData(string tblname, string key, string value, string show)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand("SELECT * FROM " + tblname + " WHERE " + key + " = '" + value + "'", conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+
+                return reader[show].ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public string[] getUserInfo(string id)
+        {
+            string nama;
+            string username;
+            string password;
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand("SELECT * FROM tbluser WHERE id = " + id + " ", conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                nama = reader["nama"].ToString();
+                username = reader["username"].ToString();
+                password = reader["password"].ToString();
+
+                string[] arr = new string[3];
+                arr[0] = nama;
+                arr[1] = username;
+                arr[2] = password;
+
+                return arr;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        
         public string[] getRules()
         {
             try
@@ -202,8 +242,8 @@ namespace koperasi_app
             string kode = "";
             MySqlCommand cmdPengurus, cmdPendiri = new MySqlCommand();
             jumlahMaksimal = Convert.ToInt32(getMaxUser[6]);
-            
-            if ( tipe == "Pendiri" || tipe == "Pengurus" )
+
+            if (tipe == "Pendiri" || tipe == "Pengurus")
             {
                 try
                 {
@@ -237,7 +277,7 @@ namespace koperasi_app
                         if (reader.HasRows)
                         {
                             kode = reader["kode"].ToString();
-                            kode = kode.Substring(0,3);
+                            kode = kode.Substring(0, 3);
                             code = Convert.ToInt32(kode) + 1;
                             if (tipe == "Pengurus")
                             {
@@ -277,7 +317,7 @@ namespace koperasi_app
                     cmd = new MySqlCommand("SELECT * FROM tblanggota WHERE lvl = 'A' ORDER BY id DESC", conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
-                    if ( reader.HasRows )
+                    if (reader.HasRows)
                     {
                         kode = reader["kode"].ToString();
                         kode = kode.Substring(0, 3);
@@ -302,21 +342,47 @@ namespace koperasi_app
 
         public string[] getMemberInfo(string kode)
         {
-            string[] arr = new string[4];
+            string[] arr = new string[5];
             try
             {
                 conn.Open();
                 cmd = new MySqlCommand("SELECT * FROM tblanggota WHERE kode = '" + kode + "'", conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-
-                arr[0] = reader["nama"].ToString();
-                arr[1] = reader["alamat"].ToString();
-                arr[2] = reader["telepon"].ToString();
-                arr[3] = reader["ktp"].ToString();
+                if ( reader.HasRows )
+                {
+                    arr[0] = reader["nama"].ToString();
+                    arr[1] = reader["alamat"].ToString();
+                    arr[2] = reader["telepon"].ToString();
+                    arr[3] = reader["ktp"].ToString();
+                    arr[4] = reader["saldo"].ToString();
+                }
+                else
+                {
+                    arr[0] = "0";
+                }
             }
             finally { conn.Close(); }
             return arr;
+        }
+
+        public string getDepositTransactionNumber()
+        {
+            try
+            {
+                int kode;
+                conn.Open();
+                cmd = new MySqlCommand("SELECT * FROM tblsimpanan ORDER BY id DESC", conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                    kode = Convert.ToInt32(reader["id"]) + 1;
+                else
+                    kode = 1000000001;
+
+                return kode.ToString();
+            }
+            finally { conn.Close(); }
         }
     }
 }

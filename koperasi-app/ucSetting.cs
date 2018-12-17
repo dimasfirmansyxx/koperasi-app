@@ -43,7 +43,7 @@ namespace koperasi_app
 
         private void btnSimpan_Click(object sender, EventArgs e)
         {
-            if ( txtSimpananPokok.Text == "" || txtSimpananWajib.Text == "" || txtSimpananSukarela.Text == "" || txtDenda.Text == "" || txtMaxPinjaman.Text == "" || txtMinimalSaldo.Text == "" || txtMaxPengurus.Text == "" )
+            if (txtSimpananPokok.Text == "" || txtSimpananWajib.Text == "" || txtSimpananSukarela.Text == "" || txtDenda.Text == "" || txtMaxPinjaman.Text == "" || txtMinimalSaldo.Text == "" || txtMaxPengurus.Text == "")
             {
                 XtraMessageBox.Show("Isikan seluruh data!");
             }
@@ -58,9 +58,13 @@ namespace koperasi_app
                 minsaldo = txtMinimalSaldo.Text;
                 maxpengurus = txtMaxPengurus.Text;
 
-                data = " simpanan_pokok = '"+ pokok +"', simpanan_wajib = '"+ wajib +"', simpanan_sukarela = '"+ sukarela +"', denda = '"+ denda +"', maksimal_peminjaman = '"+ maxpinjam +"', minimal_saldo = '"+ minsaldo +"', maks_root = '"+ maxpengurus +"' ";
-                if (master.updateData("tblaturan", data, "id", "0") == true)
-                    XtraMessageBox.Show("Berhasil");
+                if (pokok.All(char.IsNumber) == false || wajib.All(char.IsNumber) == false || sukarela.All(char.IsNumber) == false || denda.All(char.IsNumber) == false || maxpinjam.All(char.IsNumber) || minsaldo.All(char.IsNumber) == false || maxpengurus.All(char.IsNumber) == false)
+                    XtraMessageBox.Show("Isikan seluruh data dengan angka!");
+                else { 
+                    data = " simpanan_pokok = '"+ pokok +"', simpanan_wajib = '"+ wajib +"', simpanan_sukarela = '"+ sukarela +"', denda = '"+ denda +"', maksimal_peminjaman = '"+ maxpinjam +"', minimal_saldo = '"+ minsaldo +"', maks_root = '"+ maxpengurus +"' ";
+                    if (master.updateData("tblaturan", data, "id", "0") == true)
+                        XtraMessageBox.Show("Berhasil");
+                }
             }
         }
     }

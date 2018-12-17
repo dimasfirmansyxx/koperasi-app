@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2018 at 10:29 AM
+-- Generation Time: Dec 17, 2018 at 07:14 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.6.38
 
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `tblanggota` (
 --
 
 INSERT INTO `tblanggota` (`id`, `kode`, `nama`, `alamat`, `telepon`, `ktp`, `saldo`, `lvl`) VALUES
-(1, '051A', 'Budi', 'Batu Ampar', '087798347590', '2171905983798457', '200000', 'A'),
-(2, '052A', 'Andi', 'Sengkuang', '081295827598', '2171023758297395', '0', 'A');
+(1, '051A', 'Budi', 'Batu Ampar', '087798347590', '2171905983798457', '0', 'A'),
+(2, '052A', 'Andi', 'Sengkuang', '081295827598', '2171023758297395', '200000', 'A');
 
 -- --------------------------------------------------------
 
@@ -87,14 +87,6 @@ CREATE TABLE IF NOT EXISTS `tblpembayaran` (
   `thn` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tblpembayaran`
---
-
-INSERT INTO `tblpembayaran` (`id`, `tanggal`, `kode_pinjaman`, `kode_anggota`, `nama_anggota`, `bayar`, `tgl`, `bln`, `thn`) VALUES
-(1000000001, '10/12/2018', 40001, '051A', 'Budi', 42917, '10', '12', '2018'),
-(1000000002, '11/01/2019', 40001, '051A', 'Budi', 47209, '11', '01', '2019');
-
 -- --------------------------------------------------------
 
 --
@@ -111,13 +103,6 @@ CREATE TABLE IF NOT EXISTS `tblpengambilan` (
   `bln` varchar(2) NOT NULL,
   `thn` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tblpengambilan`
---
-
-INSERT INTO `tblpengambilan` (`id`, `tanggal`, `kode_anggota`, `nama_anggota`, `jumlah`, `tgl`, `bln`, `thn`) VALUES
-(1000000001, '10/12/2018', '051A', 'Budi', '100000', '10', '12', '2018');
 
 -- --------------------------------------------------------
 
@@ -143,13 +128,6 @@ CREATE TABLE IF NOT EXISTS `tblpinjaman` (
   `thn` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tblpinjaman`
---
-
-INSERT INTO `tblpinjaman` (`id`, `tanggal`, `kode_anggota`, `nama_anggota`, `bunga`, `lama_cicilan`, `jumlah`, `angsuran`, `telah_dibayar`, `total_dibayar`, `status`, `tempo`, `tgl`, `bln`, `thn`) VALUES
-(40001, '10/12/2018', '051A', 'Budi', '3', '12', 500000, 42917, 85834, 515004, 'Belum Lunas', '10', '10', '12', '2018');
-
 -- --------------------------------------------------------
 
 --
@@ -163,18 +141,15 @@ CREATE TABLE IF NOT EXISTS `tblsimpanan` (
   `nama_anggota` varchar(100) NOT NULL,
   `jenis_simpanan` enum('Wajib','Pokok','Sukarela') NOT NULL,
   `jumlah` int(20) NOT NULL,
-  `tgl` varchar(2) NOT NULL,
-  `bln` varchar(2) NOT NULL,
-  `thn` varchar(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1000000003 ;
+  `bulan` varchar(50) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1000000004 ;
 
 --
 -- Dumping data for table `tblsimpanan`
 --
 
-INSERT INTO `tblsimpanan` (`id`, `tanggal`, `kode_anggota`, `nama_anggota`, `jenis_simpanan`, `jumlah`, `tgl`, `bln`, `thn`) VALUES
-(1000000001, '10/12/2018', '051A', 'Budi', 'Pokok', 200000, '10', '12', '2018'),
-(1000000002, '10/12/2018', '051A', 'Budi', 'Wajib', 100000, '10', '12', '2018');
+INSERT INTO `tblsimpanan` (`id`, `tanggal`, `kode_anggota`, `nama_anggota`, `jenis_simpanan`, `jumlah`, `bulan`) VALUES
+(1000000001, '17/12/2018', '052A', 'Andi', 'Pokok', 200000, 'Desember 2018');
 
 -- --------------------------------------------------------
 
@@ -255,7 +230,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `tblsimpanan`
 --
 ALTER TABLE `tblsimpanan`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000000003;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1000000004;
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
