@@ -209,5 +209,10 @@ namespace koperasi_app
 
             action = "edit";
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            getUser();
+        }
     }
 }

@@ -109,6 +109,21 @@ namespace koperasi_app
             }
         }
 
+        public int numRows(string query)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand(query, conn);
+                int num = Convert.ToInt32(cmd.ExecuteScalar());
+                return num;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public string monthID(string month)
         {
             int bln = Convert.ToInt32(month);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucUser));
             this.btnTambah = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -49,6 +50,7 @@
             this.gbxForm = new System.Windows.Forms.GroupBox();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxManageUser)).BeginInit();
@@ -289,6 +291,12 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ucUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +341,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn id;
         private DevExpress.XtraGrid.Columns.GridColumn nama;
         private DevExpress.XtraGrid.Columns.GridColumn username;
+        private System.Windows.Forms.Timer timer1;
     }
 }

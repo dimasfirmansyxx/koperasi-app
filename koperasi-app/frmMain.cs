@@ -26,6 +26,7 @@ namespace koperasi_app
 
         private void nbiUser_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            ucArea.Controls.Clear();
             if (!ucArea.Controls.Contains(ucUser.Instance))
             {
                 ucArea.Controls.Add(ucUser.Instance);
@@ -43,6 +44,7 @@ namespace koperasi_app
 
         private void nbiAnggota_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            ucArea.Controls.Clear();
             if (!ucArea.Controls.Contains(ucAnggota.Instance))
             {
                 ucArea.Controls.Add(ucAnggota.Instance);
@@ -55,6 +57,7 @@ namespace koperasi_app
 
         private void nbiPengaturan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            ucArea.Controls.Clear();
             if (!ucArea.Controls.Contains(ucSetting.Instance))
             {
                 ucArea.Controls.Add(ucSetting.Instance);

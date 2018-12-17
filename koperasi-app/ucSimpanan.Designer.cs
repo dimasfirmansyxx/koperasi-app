@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSimpanan));
             this.gbxManageUser = new DevExpress.XtraEditors.GroupControl();
             this.btnHapus = new DevExpress.XtraEditors.SimpleButton();
@@ -56,6 +57,7 @@
             this.jenis_simpanan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.jumlah = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgv = new DevExpress.XtraGrid.GridControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gbxManageUser)).BeginInit();
             this.gbxManageUser.SuspendLayout();
             this.gbx.SuspendLayout();
@@ -170,7 +172,7 @@
             this.txtTanggal.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtTanggal.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.txtTanggal.Properties.Mask.EditMask = "D";
+            this.txtTanggal.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.txtTanggal.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             this.txtTanggal.Size = new System.Drawing.Size(133, 20);
             this.txtTanggal.TabIndex = 1;
@@ -382,6 +384,12 @@
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ucSimpanan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,5 +444,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn jenis_simpanan;
         private DevExpress.XtraGrid.Columns.GridColumn jumlah;
         private DevExpress.XtraEditors.DateEdit txtTanggal;
+        private System.Windows.Forms.Timer timer1;
     }
 }

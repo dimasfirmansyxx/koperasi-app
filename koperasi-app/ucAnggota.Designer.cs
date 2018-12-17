@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAnggota));
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
@@ -58,6 +59,7 @@
             this.cmbTipe = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblTipe = new DevExpress.XtraEditors.LabelControl();
             this.gbxManageUser = new DevExpress.XtraEditors.GroupControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
@@ -399,6 +401,12 @@
             this.gbxManageUser.TabIndex = 6;
             this.gbxManageUser.Text = "Manajemen Anggota";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ucAnggota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,5 +463,6 @@
         private System.Windows.Forms.TextBox txtAlamat;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private System.Windows.Forms.Timer timer1;
     }
 }
