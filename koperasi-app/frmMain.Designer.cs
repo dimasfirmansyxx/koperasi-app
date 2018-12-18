@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.nbgMaster = new DevExpress.XtraNavBar.NavBarGroup();
-            this.nbiUser = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiAnggota = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbiPengaturan = new DevExpress.XtraNavBar.NavBarItem();
             this.nbgTransaksi = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiSimpanan = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiPengambilan = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiPinjaman = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiPembayaran = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbgMaster = new DevExpress.XtraNavBar.NavBarGroup();
+            this.nbiUser = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiAnggota = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbiPengaturan = new DevExpress.XtraNavBar.NavBarItem();
             this.nbgReport = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbiReportSimpanan = new DevExpress.XtraNavBar.NavBarItem();
             this.nbiReportPengambilan = new DevExpress.XtraNavBar.NavBarItem();
@@ -56,7 +56,7 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.nbgTransaksi;
+            this.navBarControl1.ActiveGroup = this.nbgReport;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.nbgMaster,
@@ -84,6 +84,40 @@
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinNavigationPaneViewInfoRegistrator("Metropolis Dark");
             this.navBarControl1.Click += new System.EventHandler(this.navBarControl1_Click);
+            // 
+            // nbgTransaksi
+            // 
+            this.nbgTransaksi.Caption = "Transaksi";
+            this.nbgTransaksi.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSimpanan),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPengambilan),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPinjaman),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPembayaran)});
+            this.nbgTransaksi.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbgTransaksi.LargeImage")));
+            this.nbgTransaksi.Name = "nbgTransaksi";
+            // 
+            // nbiSimpanan
+            // 
+            this.nbiSimpanan.Caption = "Simpanan";
+            this.nbiSimpanan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiSimpanan.LargeImage")));
+            this.nbiSimpanan.Name = "nbiSimpanan";
+            this.nbiSimpanan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSimpanan_LinkClicked);
+            // 
+            // nbiPengambilan
+            // 
+            this.nbiPengambilan.Caption = "Pengambilan";
+            this.nbiPengambilan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiPengambilan.LargeImage")));
+            this.nbiPengambilan.Name = "nbiPengambilan";
+            // 
+            // nbiPinjaman
+            // 
+            this.nbiPinjaman.Caption = "Pinjaman";
+            this.nbiPinjaman.Name = "nbiPinjaman";
+            // 
+            // nbiPembayaran
+            // 
+            this.nbiPembayaran.Caption = "Pembayaran";
+            this.nbiPembayaran.Name = "nbiPembayaran";
             // 
             // nbgMaster
             // 
@@ -117,44 +151,10 @@
             this.nbiPengaturan.Name = "nbiPengaturan";
             this.nbiPengaturan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiPengaturan_LinkClicked);
             // 
-            // nbgTransaksi
-            // 
-            this.nbgTransaksi.Caption = "Transaksi";
-            this.nbgTransaksi.Expanded = true;
-            this.nbgTransaksi.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiSimpanan),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPengambilan),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPinjaman),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbiPembayaran)});
-            this.nbgTransaksi.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbgTransaksi.LargeImage")));
-            this.nbgTransaksi.Name = "nbgTransaksi";
-            // 
-            // nbiSimpanan
-            // 
-            this.nbiSimpanan.Caption = "Simpanan";
-            this.nbiSimpanan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiSimpanan.LargeImage")));
-            this.nbiSimpanan.Name = "nbiSimpanan";
-            this.nbiSimpanan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiSimpanan_LinkClicked);
-            // 
-            // nbiPengambilan
-            // 
-            this.nbiPengambilan.Caption = "Pengambilan";
-            this.nbiPengambilan.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbiPengambilan.LargeImage")));
-            this.nbiPengambilan.Name = "nbiPengambilan";
-            // 
-            // nbiPinjaman
-            // 
-            this.nbiPinjaman.Caption = "Pinjaman";
-            this.nbiPinjaman.Name = "nbiPinjaman";
-            // 
-            // nbiPembayaran
-            // 
-            this.nbiPembayaran.Caption = "Pembayaran";
-            this.nbiPembayaran.Name = "nbiPembayaran";
-            // 
             // nbgReport
             // 
             this.nbgReport.Caption = "Laporan";
+            this.nbgReport.Expanded = true;
             this.nbgReport.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReportSimpanan),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbiReportPengambilan),
@@ -167,6 +167,7 @@
             // 
             this.nbiReportSimpanan.Caption = "Laporan Simpanan";
             this.nbiReportSimpanan.Name = "nbiReportSimpanan";
+            this.nbiReportSimpanan.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbiReportSimpanan_LinkClicked);
             // 
             // nbiReportPengambilan
             // 

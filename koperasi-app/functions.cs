@@ -10,7 +10,7 @@ namespace koperasi_app
 {
     public class functions
     {
-        public static string connstr = @"server=localhost;userid=root;password=;database=dbkoperasi";
+        public static string connstr = @"server=localhost;userid=root;password=;database=dbkoperasi;sslmode=none";
         public MySqlConnection conn = new MySqlConnection(connstr);
         public MySqlCommand cmd = new MySqlCommand();
 

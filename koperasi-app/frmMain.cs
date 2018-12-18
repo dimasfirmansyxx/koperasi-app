@@ -79,5 +79,17 @@ namespace koperasi_app
             else
                 ucSimpanan.Instance.BringToFront();
         }
+
+        private void nbiReportSimpanan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!ucArea.Controls.Contains(ucRptSimpanan.Instance))
+            {
+                ucArea.Controls.Add(ucRptSimpanan.Instance);
+                ucRptSimpanan.Instance.Dock = DockStyle.Fill;
+                ucRptSimpanan.Instance.BringToFront();
+            }
+            else
+                ucRptSimpanan.Instance.BringToFront();
+        }
     }
 }
