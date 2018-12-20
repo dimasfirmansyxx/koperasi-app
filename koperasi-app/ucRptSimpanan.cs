@@ -21,6 +21,7 @@ namespace koperasi_app
         public static functions master = new functions();
         public static MySqlConnection conn = master.conn;
         public static MySqlCommand cmd = new MySqlCommand();
+        public string total;
 
         private static ucRptSimpanan _instance;
 
@@ -58,6 +59,8 @@ namespace koperasi_app
                 dgv.DataSource = data.Tables["tblsimpanan"];
             }
             finally { conn.Close(); }
+
+            total = master.getTotal("SELECT SUM(jumlah) AS total FROM tblsimpanan WHERE tanggal BETWEEN '" + dari + "' AND '" + sampai + "'");
         }
 
         public ucRptSimpanan()
@@ -81,46 +84,44 @@ namespace koperasi_app
 
         private void btnCetak_Click(object sender, EventArgs e)
         {
-            //var rpt = new rptSimpanan();
+            rptSimpanan rpt = new rptSimpanan();
 
-            //DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
 
-            //dt.Columns.Add("id", typeof(int));
-            //dt.Columns.Add("tanggal", typeof(string));
-            //dt.Columns.Add("kode_anggota", typeof(string));
-            //dt.Columns.Add("nama_anggota", typeof(string));
-            //dt.Columns.Add("jenis_simpanan", typeof(string));
-            //dt.Columns.Add("jumlah", typeof(int));
+            dt.Columns.Add("id", typeof(int));
+            dt.Columns.Add("tanggal", typeof(string));
+            dt.Columns.Add("kode_anggota", typeof(string));
+            dt.Columns.Add("nama_anggota", typeof(string));
+            dt.Columns.Add("jenis_simpanan", typeof(string));
+            dt.Columns.Add("jumlah", typeof(int));
+            dt.Columns.Add("totalJumlah", typeof(int));
 
-            //for (int i = 1; i < 5; i++)
-            //{
-            //    DataRow dtrow = dt.NewRow();
-            //    string tgl, kode, nama, jenis;
-            //    int id, jml;
-            //    id = Convert.ToInt32(gridViewData.GetFocusedRowCellValue("id"));
-            //    tgl = gridViewData.GetFocusedRowCellValue("kode_anggota").ToString();
-            //    kode = gridViewData.GetFocusedRowCellValue("tanggal").ToString();
-            //    nama = gridViewData.GetFocusedRowCellValue("nama_anggota").ToString();
-            //    jenis = gridViewData.GetFocusedRowCellValue("jenis_simpanan").ToString();
-            //    jml = Convert.ToInt32(gridViewData.GetFocusedRowCellValue("jumlah"));
+            for (int i = 0; i < gridViewData.RowCount; i++)
+            {
+                string tgl, kode, nama, jenis;
+                int id, jml;
+                id = Convert.ToInt32(gridViewData.GetRowCellValue(i, "id"));
+                tgl = gridViewData.GetRowCellValue(i, "tanggal").ToString();
+                kode = gridViewData.GetRowCellValue(i, "kode_anggota").ToString();
+                nama = gridViewData.GetRowCellValue(i, "nama_anggota").ToString();
+                jenis = gridViewData.GetRowCellValue(i, "jenis_simpanan").ToString();
+                jml = Convert.ToInt32(gridViewData.GetRowCellValue(i, "jumlah"));
 
-            //    dtrow[0] = id;
-            //    dtrow[1] = tgl;
-            //    dtrow[2] = kode;
-            //    dtrow[3] = nama;
-            //    dtrow[4] = jenis;
-            //    dtrow[5] = jml;
+                dt.Rows.Add(id, tgl, kode, nama, jenis, jml, total.ToString());
 
-            //    dt.Rows.Add(dtrow);
-            //}
+                rpt.Bands[BandKind.Detail].Controls[0].DataBindings.Add(new XRBinding("Text", dt, "jumlah"));
+                rpt.Bands[BandKind.Detail].Controls[1].DataBindings.Add(new XRBinding("Text", dt, "jenis_simpanan"));
+                rpt.Bands[BandKind.Detail].Controls[2].DataBindings.Add(new XRBinding("Text", dt, "nama_anggota"));
+                rpt.Bands[BandKind.Detail].Controls[3].DataBindings.Add(new XRBinding("Text", dt, "kode_anggota"));
+                rpt.Bands[BandKind.Detail].Controls[4].DataBindings.Add(new XRBinding("Text", dt, "tanggal"));
+                rpt.Bands[BandKind.Detail].Controls[5].DataBindings.Add(new XRBinding("Text", dt, "id"));
+            }
 
-            //DataSet ds = new DataSet("tblrpt");
-            //ds.Tables.Add(dt);
-            ////rpt.DataSource = ds;
-            ////ds.WriteXmlSchema("Reports/rptSimpanan.xml");
-            //rpt.RequestParameters = false;
-            //rpt.ShowPreview();
-            
+            rpt.Parameters["totalJumlah"].Value = total;
+
+            rpt.DataSource = dt;
+            rpt.RequestParameters = false;
+            rpt.ShowPreview();
         }
     }
 }

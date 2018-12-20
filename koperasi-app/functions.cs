@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using MySql.Data.MySqlClient;
 using MySql.Web;
 
@@ -10,7 +11,11 @@ namespace koperasi_app
 {
     public class functions
     {
-        public static string connstr = @"server=localhost;userid=root;password=;database=dbkoperasi;sslmode=none";
+        private static string host = Properties.Settings.Default.server;
+        private static string user = Properties.Settings.Default.username;
+        private static string pass = Properties.Settings.Default.password;
+        private static string db = Properties.Settings.Default.database;
+        private static string connstr = @"server=" + host + ";userid=" + user + ";password=" + pass + ";database=" + db + ";sslmode=none";
         public MySqlConnection conn = new MySqlConnection(connstr);
         public MySqlCommand cmd = new MySqlCommand();
 
@@ -398,6 +403,25 @@ namespace koperasi_app
                 return kode.ToString();
             }
             finally { conn.Close(); }
+        }
+
+        public string getTotal(string query)
+        {
+            int jumlah;
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                jumlah = Convert.ToInt32(reader["total"]);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return jumlah.ToString();
         }
     }
 }

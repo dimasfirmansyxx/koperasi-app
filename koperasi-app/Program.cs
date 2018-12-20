@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
+using System.Configuration;
+using System.Collections.Specialized;
 
 namespace koperasi_app
 {
