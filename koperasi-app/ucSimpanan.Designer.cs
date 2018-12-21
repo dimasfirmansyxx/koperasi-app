@@ -84,7 +84,7 @@
             this.gbxManageUser.Name = "gbxManageUser";
             this.gbxManageUser.Size = new System.Drawing.Size(872, 287);
             this.gbxManageUser.TabIndex = 6;
-            this.gbxManageUser.Text = "Manajemen User";
+            this.gbxManageUser.Text = "Simpanan";
             // 
             // btnHapus
             // 

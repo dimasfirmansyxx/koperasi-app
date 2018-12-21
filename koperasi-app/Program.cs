@@ -7,7 +7,8 @@ using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using System.Configuration;
 using System.Collections.Specialized;
-
+using MySql.Data.MySqlClient;
+using MySql.Web;
 namespace koperasi_app
 {
     static class Program

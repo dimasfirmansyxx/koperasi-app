@@ -91,5 +91,17 @@ namespace koperasi_app
             else
                 ucRptSimpanan.Instance.BringToFront();
         }
+
+        private void nbiPengambilan_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (!ucArea.Controls.Contains(ucPengambilan.Instance))
+            {
+                ucArea.Controls.Add(ucPengambilan.Instance);
+                ucPengambilan.Instance.Dock = DockStyle.Fill;
+                ucPengambilan.Instance.BringToFront();
+            }
+            else
+                ucPengambilan.Instance.BringToFront();
+        }
     }
 }

@@ -70,5 +70,29 @@ namespace koperasi_app.Properties {
                 this["database"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string license {
+            get {
+                return ((string)(this["license"]));
+            }
+            set {
+                this["license"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string status {
+            get {
+                return ((string)(this["status"]));
+            }
+            set {
+                this["status"] = value;
+            }
+        }
     }
 }

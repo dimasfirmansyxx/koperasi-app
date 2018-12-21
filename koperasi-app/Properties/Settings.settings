@@ -14,5 +14,11 @@
     <Setting Name="database" Type="System.String" Scope="User">
       <Value Profile="(Default)">dbkoperasi</Value>
     </Setting>
+    <Setting Name="license" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="status" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
