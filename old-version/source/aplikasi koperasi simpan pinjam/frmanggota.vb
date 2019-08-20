@@ -4,88 +4,35 @@ Public Class frmanggota
     Dim code As String
 
     Sub getCode()
-        Dim kode As Integer
-        Dim cmdPengurus, cmdPendiri As MySqlCommand
-        Dim jumlahPengurus, jumlahPendiri, jumlahKeduanya As Integer
-        If cmbtipe.Text = "Pengurus" Or cmbtipe.Text = "Pendiri" Then
-            conn.Close()
-            conn.Open()
-            'cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '050P' OR kode = '050PG'", conn)
-            cmdPengurus = New MySqlCommand("SELECT COUNT(*) FROM tblanggota WHERE lvl = 'PG'", conn)
-            cmdPendiri = New MySqlCommand("SELECT COUNT(*) FROM tblanggota WHERE lvl = 'P'", conn)
-            jumlahPengurus = CInt(cmdPengurus.ExecuteScalar)
-            jumlahPendiri = CInt(cmdPendiri.ExecuteScalar)
-            jumlahKeduanya = jumlahPengurus + jumlahPendiri
-            'reader = cmd.ExecuteReader
-            'reader.Read()
-            'If reader.HasRows Then
-            If jumlahKeduanya > 50 Then
-                If cmbtipe.Text = "Pengurus" Then
-                    MessageBox.Show("Tipe anggota untuk pengurus sudah penuh")
-                ElseIf cmbtipe.Text = "Pendiri" Then
-                    MessageBox.Show("Tipe anggota untuk pendiri sudah penuh")
-                End If
-                txtkode.Clear()
-                txtnama.Clear()
-                txtnama.Enabled = False
-                txtalamat.Clear()
-                txtalamat.Enabled = False
-                txthp.Clear()
-                txthp.Enabled = False
-                txtktp.Clear()
-                txtktp.Enabled = False
-            Else
-                conn.Close()
-                conn.Open()
-                cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE lvl = 'P' OR lvl = 'PG' ORDER BY id DESC", conn)
-                reader = cmd.ExecuteReader
-                reader.Read()
-                If reader.HasRows Then
-                    code = reader.Item("kode")
-                    code = Strings.Left(code, 3)
-                    kode = Strings.Right(code, 2)
-                    kode = kode + 1
-                    If cmbtipe.Text = "Pengurus" Then
-                        If kode < 10 Then
-                            code = "00" + CStr(kode) + "PG"
-                        Else
-                            code = "0" + CStr(kode) + "PG"
-                        End If
-                    ElseIf cmbtipe.Text = "Pendiri" Then
-                        If kode < 10 Then
-                            code = "00" + CStr(kode) + "P"
-                        Else
-                            code = "0" + CStr(kode) + "P"
-                        End If
-                    End If
-                Else
-                    If cmbtipe.Text = "Pengurus" Then
-                        code = "001PG"
-                    ElseIf cmbtipe.Text = "Pendiri" Then
-                        code = "001P"
-                    End If
-                End If
-            End If
+        Dim lvl As String
+        If cmbtipe.Text = "Pengurus" Then
+            lvl = "PG"
+        ElseIf cmbtipe.Text = "Pendiri" Then
+            lvl = "P"
         ElseIf cmbtipe.Text = "Anggota" Then
-            conn.Close()
-            conn.Open()
-            cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE lvl = 'A' ORDER BY id DESC", conn)
-            reader = cmd.ExecuteReader
-            reader.Read()
-            If reader.HasRows Then
-                code = reader.Item("kode")
-                code = Strings.Left(code, 3)
-                kode = Strings.Right(code, 2)
-                kode = kode + 1
-                If kode < 100 Then
-                    code = "0" + CStr(kode) + "A"
-                Else
-                    code = CStr(kode) + "A"
-                End If
-            Else
-                code = "051A"
-            End If
+            lvl = "A"
         End If
+
+        conn.Close()
+        conn.Open()
+        cmd = New MySqlCommand("SELECT * FROM tblanggota ORDER BY id DESC", conn)
+        reader = cmd.ExecuteReader()
+        reader.Read()
+        If reader.HasRows Then
+            Dim getKode As String = CStr(reader.Item("kode"))
+            Dim kode As Integer = CInt(Strings.Left(getKode, 3))
+            kode = kode + 1
+            If kode < 10 Then
+                code = "00" + CStr(kode) + lvl
+            ElseIf kode < 100 Then
+                code = "0" + CStr(kode) + lvl
+            Else
+                code = CStr(kode) + lvl
+            End If
+        Else
+            code = "001" + lvl
+        End If
+
         txtkode.Text = code
     End Sub
 
@@ -269,28 +216,16 @@ Public Class frmanggota
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        Dim input As String
-        input = InputBox("Masukkan kode anggota yang ingin dihapus")
-        If input = "" Then
-            MessageBox.Show("Masukkan kode anggota!")
-        Else
+        Dim index = dgv.CurrentRow.Index
+        Dim kode As String = CStr(dgv.Item(1, index).Value)
+        Dim nama As String = CStr(dgv.Item(2, index).Value)
+        If MessageBox.Show("Yakin ingin menghapus anggota " + nama + "(" + kode + ") ?", "Yakin?", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             conn.Close()
             conn.Open()
-            cmd = New MySqlCommand("SELECT * FROM tblanggota WHERE kode = '" & input & "'", conn)
-            reader = cmd.ExecuteReader
-            reader.Read()
-            If reader.HasRows Then
-                If MessageBox.Show("Yakin ingin menghapus anggota dengan kode " + input + " ?", "Yakin?", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-                    conn.Close()
-                    conn.Open()
-                    cmd = New MySqlCommand("DELETE FROM tblanggota WHERE kode = '" & input & "'", conn)
-                    cmd.ExecuteNonQuery()
-                    MessageBox.Show("Anggota dengan kode " + input + ", berhasil dihapus")
-                    Call getDGV()
-                End If
-            Else
-                MessageBox.Show("Anggota tidak ditemukan")
-            End If
+            cmd = New MySqlCommand("DELETE FROM tblanggota WHERE kode = '" + kode + "'", conn)
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("Sukses menghapus anggota")
+            Call getDGV()
         End If
     End Sub
 

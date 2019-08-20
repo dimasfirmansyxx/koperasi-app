@@ -51,7 +51,7 @@ Partial Class frmanggota
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(542, 255)
+        Me.Label5.Location = New System.Drawing.Point(656, 255)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 13)
         Me.Label5.TabIndex = 24
@@ -59,14 +59,14 @@ Partial Class frmanggota
         '
         'txtcari
         '
-        Me.txtcari.Location = New System.Drawing.Point(573, 252)
+        Me.txtcari.Location = New System.Drawing.Point(687, 252)
         Me.txtcari.Name = "txtcari"
-        Me.txtcari.Size = New System.Drawing.Size(440, 20)
+        Me.txtcari.Size = New System.Drawing.Size(326, 20)
         Me.txtcari.TabIndex = 23
         '
         'btnbatal
         '
-        Me.btnbatal.Location = New System.Drawing.Point(340, 221)
+        Me.btnbatal.Location = New System.Drawing.Point(463, 218)
         Me.btnbatal.Name = "btnbatal"
         Me.btnbatal.Size = New System.Drawing.Size(112, 23)
         Me.btnbatal.TabIndex = 13
@@ -76,9 +76,10 @@ Partial Class frmanggota
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(573, 103)
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(720, 135)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(95, 58)
+        Me.Button3.Size = New System.Drawing.Size(116, 80)
         Me.Button3.TabIndex = 21
         Me.Button3.Text = "Hapus Anggota"
         Me.Button3.UseVisualStyleBackColor = True
@@ -94,18 +95,20 @@ Partial Class frmanggota
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(686, 28)
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(842, 50)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(95, 58)
+        Me.Button2.Size = New System.Drawing.Size(116, 80)
         Me.Button2.TabIndex = 20
         Me.Button2.Text = "Edit Anggota"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(573, 28)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(720, 50)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(95, 58)
+        Me.Button1.Size = New System.Drawing.Size(116, 80)
         Me.Button1.TabIndex = 19
         Me.Button1.Text = "Tambah Anggota"
         Me.Button1.UseVisualStyleBackColor = True
@@ -129,7 +132,7 @@ Partial Class frmanggota
         Me.gbxbox.Enabled = False
         Me.gbxbox.Location = New System.Drawing.Point(23, 12)
         Me.gbxbox.Name = "gbxbox"
-        Me.gbxbox.Size = New System.Drawing.Size(476, 256)
+        Me.gbxbox.Size = New System.Drawing.Size(605, 256)
         Me.gbxbox.TabIndex = 18
         Me.gbxbox.TabStop = False
         '
@@ -140,7 +143,7 @@ Partial Class frmanggota
         Me.cmbtipe.Items.AddRange(New Object() {"Anggota", "Pengurus", "Pendiri"})
         Me.cmbtipe.Location = New System.Drawing.Point(83, 15)
         Me.cmbtipe.Name = "cmbtipe"
-        Me.cmbtipe.Size = New System.Drawing.Size(153, 21)
+        Me.cmbtipe.Size = New System.Drawing.Size(276, 21)
         Me.cmbtipe.TabIndex = 4
         '
         'lbltipe
@@ -157,7 +160,7 @@ Partial Class frmanggota
         Me.txtktp.Enabled = False
         Me.txtktp.Location = New System.Drawing.Point(83, 192)
         Me.txtktp.Name = "txtktp"
-        Me.txtktp.Size = New System.Drawing.Size(369, 20)
+        Me.txtktp.Size = New System.Drawing.Size(492, 20)
         Me.txtktp.TabIndex = 9
         '
         'Label6
@@ -174,12 +177,12 @@ Partial Class frmanggota
         Me.txtnama.Enabled = False
         Me.txtnama.Location = New System.Drawing.Point(83, 86)
         Me.txtnama.Name = "txtnama"
-        Me.txtnama.Size = New System.Drawing.Size(369, 20)
+        Me.txtnama.Size = New System.Drawing.Size(492, 20)
         Me.txtnama.TabIndex = 5
         '
         'btnaksi
         '
-        Me.btnaksi.Location = New System.Drawing.Point(222, 221)
+        Me.btnaksi.Location = New System.Drawing.Point(345, 218)
         Me.btnaksi.Name = "btnaksi"
         Me.btnaksi.Size = New System.Drawing.Size(112, 23)
         Me.btnaksi.TabIndex = 12
@@ -200,7 +203,7 @@ Partial Class frmanggota
         Me.txthp.Enabled = False
         Me.txthp.Location = New System.Drawing.Point(83, 158)
         Me.txthp.Name = "txthp"
-        Me.txthp.Size = New System.Drawing.Size(369, 20)
+        Me.txthp.Size = New System.Drawing.Size(492, 20)
         Me.txthp.TabIndex = 7
         '
         'Label3
@@ -217,7 +220,7 @@ Partial Class frmanggota
         Me.txtalamat.Enabled = False
         Me.txtalamat.Location = New System.Drawing.Point(83, 123)
         Me.txtalamat.Name = "txtalamat"
-        Me.txtalamat.Size = New System.Drawing.Size(369, 20)
+        Me.txtalamat.Size = New System.Drawing.Size(492, 20)
         Me.txtalamat.TabIndex = 6
         '
         'Label4
@@ -234,7 +237,7 @@ Partial Class frmanggota
         Me.txtkode.Location = New System.Drawing.Point(83, 48)
         Me.txtkode.Name = "txtkode"
         Me.txtkode.ReadOnly = True
-        Me.txtkode.Size = New System.Drawing.Size(153, 20)
+        Me.txtkode.Size = New System.Drawing.Size(276, 20)
         Me.txtkode.TabIndex = 4
         '
         'dgv
@@ -250,9 +253,10 @@ Partial Class frmanggota
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(686, 104)
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(842, 136)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(95, 57)
+        Me.Button5.Size = New System.Drawing.Size(116, 79)
         Me.Button5.TabIndex = 25
         Me.Button5.Text = "Tutup"
         Me.Button5.UseVisualStyleBackColor = True

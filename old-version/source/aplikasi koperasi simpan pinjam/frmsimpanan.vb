@@ -158,7 +158,16 @@ Public Class frmsimpanan
                 cmd = New MySqlCommand("UPDATE tblanggota SET saldo = '" & CStr(newSaldo) & "' WHERE kode = '" & kode_anggota & "'", conn)
                 cmd.ExecuteNonQuery()
 
-                MessageBox.Show("Berhasil")
+                'MessageBox.Show("Berhasil")
+                If MessageBox.Show("Ingin mencetak struk ?", "Cetak", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                    frmprintsimpanan.lblTransaksi.Text = ": " + kode
+                    frmprintsimpanan.lblTanggal.Text = ": " + tanggal
+                    frmprintsimpanan.lblKode.Text = ": " + kode_anggota
+                    frmprintsimpanan.lblNama.Text = ": " + nama
+                    frmprintsimpanan.lblJenis.Text = ": " + jenis
+                    frmprintsimpanan.lblJumlah.Text = ": Rp." + jumlah + ",-"
+                    frmprintsimpanan.Show()
+                End If
                 Call getDgv()
                 txtkode.Text = txtkode.Text + +1
                 txtkodeanggota.Clear()

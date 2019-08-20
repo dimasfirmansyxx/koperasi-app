@@ -9,48 +9,6 @@
         frmlogin.Show()
     End Sub
 
-    Private Sub LoginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoginToolStripMenuItem.Click
-        Dim form As New frmuser
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub LogoutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoutToolStripMenuItem.Click
-        Dim form As New frmanggota
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub PengaturanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PengaturanToolStripMenuItem.Click
-        Dim form As New frmpengaturan
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub SimpananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpananToolStripMenuItem.Click
-        Dim form As New frmsimpanan
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub PengembalianToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PengembalianToolStripMenuItem.Click
-        Dim form As New frmpengambilan
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub PinjamanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PinjamanToolStripMenuItem.Click
-        Dim form As New frmpinjaman
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
-    Private Sub PembayaranToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PembayaranToolStripMenuItem.Click
-        Dim form As New frmpembayaran
-        form.MdiParent = Me
-        form.Show()
-    End Sub
-
     Private Sub LaporanSimpananToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaporanSimpananToolStripMenuItem.Click
         Dim form As New frmrptsimpanan
         form.MdiParent = Me
@@ -75,4 +33,31 @@
         form.Show()
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmuser.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        frmanggota.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        frmpengaturan.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        frmsimpanan.Show()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        frmpengambilan.Show()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        frmpinjaman.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        frmpembayaran.Show()
+    End Sub
 End Class

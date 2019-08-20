@@ -168,7 +168,20 @@ Public Class frmpembayaran
                     cmd.ExecuteNonQuery()
                 End If
 
-                MessageBox.Show("Sukses")
+                'MessageBox.Show("Sukses")
+                If MessageBox.Show("Ingin mencetak struk ?", "Cetak", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                    With frmprintpembayaran
+                        .lblTransaksi.Text = txtkode.Text
+                        .lblTanggal.Text = txttanggal.Text
+                        .lblKode.Text = txtkodepinjaman.Text
+                        .lblNama.Text = txtnama.Text
+                        .lblJmlPinjaman.Text = txtjumlahpinjaman.Text
+                        .lblAngsuran.Text = txtangsuran.Text
+                        .lblJmlPembayaran.Text = txtjumlah.Text
+                        .lblKeterangan.Text = txtketerangan.Text
+                        .Show()
+                    End With
+                End If
                 btnbatal.PerformClick()
                 txtkode.Text = txtkode.Text + +1
                 Call getDgv()
